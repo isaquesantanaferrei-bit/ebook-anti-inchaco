@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardápio Anti-Inchaço — 14 Dias</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --verde: #1A3A2A;
+  --verde-med: #2D5A3D;
+  --verde-claro: #4A8C5C;
+  --sage: #8FBC8F;
+  --menta: #C8E6C9;
+  --creme: #F7F4EE;
+  --creme-esc: #EDE9DF;
+  --dourado: #C4A35A;
+  --dourado-claro: #E8D5A3;
+  --texto: #1C1C1C;
+  --texto-med: #3A3A3A;
+  --texto-leve: #6B6B6B;
+  --branco: #FFFFFF;
+  --vermelho-suave: #E8A090;
+  --azul-suave: #90B8E8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--creme);
+  color: var(--texto);
+  max-width: 820px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── CAPA ── */
+.capa {
+  background: var(--verde);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.capa::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74,140,92,0.12) 0%, transparent 70%);
+}
+.capa-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dourado);
+  border: 1px solid rgba(196,163,90,0.4);
+  padding: 8px 20px;
+  margin-bottom: 48px;
+}
+.capa-icon { font-size: 60px; margin-bottom: 28px; }
+.capa h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 6vw, 60px);
+  font-weight: 700;
+  color: var(--branco);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.capa h1 span { color: var(--dourado); display: block; }
+.capa-sub {
+  font-size: 16px;
+  color: var(--sage);
+  font-weight: 300;
+  max-width: 460px;
+  margin: 0 auto 48px;
+}
+.capa-divider {
+  width: 60px; height: 1px;
+  background: var(--dourado);
+  margin: 0 auto 32px;
+  opacity: 0.5;
+}
+.capa-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(143,188,143,0.2);
+  padding: 20px 32px;
+  max-width: 400px;
+}
+.capa-box p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--menta);
+  font-size: 15px;
+}
+
+/* ── SEÇÕES ── */
+.secao {
+  padding: 64px 48px;
+  border-bottom: 1px solid var(--creme-esc);
+}
+.secao.branco { background: var(--branco); }
+.label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--verde-claro);
+  display: block;
+  margin-bottom: 14px;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 700;
+  color: var(--verde);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--verde-med);
+  margin-bottom: 10px;
+}
+p { font-size: 15px; color: var(--texto-med); margin-bottom: 14px; line-height: 1.8; }
+
+/* ── INTRO EMOCIONAL ── */
+.dor-box {
+  background: var(--verde);
+  color: var(--branco);
+  padding: 36px 40px;
+  margin: 32px 0;
+  border-radius: 4px;
+}
+.dor-box p {
+  color: rgba(255,255,255,0.85);
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 0;
+  font-style: italic;
+}
+.dor-box p span { color: var(--dourado); font-style: normal; font-weight: 600; }
+
+/* ── PLACAR INTERATIVO ── */
+.placar-section {
+  background: var(--verde);
+  padding: 56px 48px;
+}
+.placar-section .label { color: var(--sage); }
+.placar-section h2 { color: var(--branco); }
+.placar-section > p { color: rgba(255,255,255,0.7); }
+
+.placar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin: 32px 0 24px;
+}
+
+.dia-btn {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  border: 1.5px solid rgba(143,188,143,0.3);
+  background: rgba(255,255,255,0.05);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+  padding: 8px 4px;
+}
+.dia-btn:hover {
+  border-color: var(--sage);
+  background: rgba(143,188,143,0.1);
+  transform: translateY(-2px);
+}
+.dia-btn.cumprido {
+  background: var(--verde-claro);
+  border-color: var(--verde-claro);
+}
+.dia-btn.cumprido .dia-check { display: flex; }
+.dia-btn .dia-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--branco);
+  line-height: 1;
+}
+.dia-btn .dia-label {
+  font-size: 9px;
+  color: var(--sage);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'DM Mono', monospace;
+}
+.dia-btn.cumprido .dia-label { color: var(--menta); }
+.dia-check {
+  position: absolute;
+  top: 4px; right: 4px;
+  width: 14px; height: 14px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+}
+
+.placar-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+.stat-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(143,188,143,0.15);
+  padding: 18px;
+  border-radius: 4px;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 28px;
+  color: var(--dourado);
+  display: block;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.5px;
+}
+
+.progresso-bar-wrap {
+  margin-top: 24px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  height: 6px;
+}
+.progresso-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--verde-claro), var(--dourado));
+  border-radius: 2px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
+.placar-msg {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--sage);
+  font-style: italic;
+  min-height: 22px;
+}
+
+.reset-btn {
+  display: block;
+  margin: 16px auto 0;
+  background: transparent;
+  border: 1px solid rgba(143,188,143,0.2);
+  color: rgba(255,255,255,0.3);
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.reset-btn:hover {
+  border-color: rgba(143,188,143,0.5);
+  color: rgba(255,255,255,0.6);
+}
+
+/* ── GUIA DE ALIMENTOS ── */
+.intro-alimentos {
+  background: var(--creme-esc);
+  border-radius: 4px;
+  padding: 24px 28px;
+  margin: 24px 0 32px;
+  border-left: 3px solid var(--dourado);
+}
+.intro-alimentos p {
+  font-size: 14px;
+  color: var(--texto-med);
+  margin: 0;
+  line-height: 1.7;
+}
+
+.categoria-titulo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--verde-med);
+  border-radius: 4px 4px 0 0;
+  margin-top: 28px;
+}
+.categoria-titulo .emoji { font-size: 20px; }
+.categoria-titulo h3 {
+  color: var(--menta);
+  font-size: 14px;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+.categoria-titulo .cat-desc {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--sage);
+  font-style: italic;
+  font-family: 'Inter', sans-serif;
+}
+
+.alimentos-lista {
+  border: 1px solid var(--creme-esc);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+  background: var(--branco);
+}
+
+.alimento-item {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  align-items: start;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--creme-esc);
+}
+.alimento-item:last-child { border-bottom: none; }
+.alimento-item:nth-child(even) { background: var(--creme); }
+
+.alimento-nome {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--verde);
+}
+.alimento-porque {
+  font-size: 13px;
+  color: var(--texto-leve);
+  line-height: 1.5;
+}
+.alimento-sub {
+  font-size: 12px;
+  color: var(--verde-claro);
+  white-space: nowrap;
+  font-style: italic;
+  text-align: right;
+  min-width: 120px;
+}
+
+/* ── EVITAR ── */
+.evitar-section {
+  background: #FFF8F0;
+  border: 1px solid #F0D5B0;
+  border-radius: 4px;
+  padding: 28px;
+  margin-top: 32px;
+}
+.evitar-section h3 {
+  color: #8B4513;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+.evitar-section p {
+  font-size: 13px;
+  color: #9A7A30;
+  margin-bottom: 20px;
+}
+.evitar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.evitar-item {
+  background: rgba(139,69,19,0.07);
+  border-radius: 3px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  color: #7A4010;
+  text-align: center;
+}
+.evitar-item span {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+/* ── DICAS PRÁTICAS ── */
+.dica-card {
+  background: var(--branco);
+  border: 1px solid var(--creme-esc);
+  border-radius: 4px;
+  padding: 22px 26px;
+  margin-bottom: 14px;
+  border-left: 3px solid var(--verde-claro);
+}
+.dica-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--verde);
+  margin-bottom: 6px;
+}
+.dica-card p { font-size: 13.5px; color: var(--texto-leve); margin: 0; line-height: 1.7; }
+.dica-tag {
+  display: inline-block;
+  background: var(--menta);
+  color: var(--verde);
+  font-size: 10px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/* ── HIDRATAÇÃO ── */
+.agua-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--creme-esc);
+}
+.agua-item:last-child { border-bottom: none; }
+.agua-hora {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--verde-claro);
+  min-width: 72px;
+  padding-top: 2px;
+}
+.agua-desc { font-size: 14px; color: var(--texto-med); }
+.agua-ml {
+  margin-left: auto;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--verde);
+  background: var(--menta);
+  padding: 3px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* ── PROGRESSO FASES ── */
+.fase {
+  display: flex;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--creme-esc);
+  align-items: flex-start;
+}
+.fase:last-child { border-bottom: none; }
+.fase-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--dourado);
+  background: var(--creme-esc);
+  padding: 4px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+  margin-top: 4px;
+}
+.fase h3 { font-size: 17px; margin-bottom: 6px; }
+.fase p { font-size: 14px; margin: 0; }
+
+/* ── ENCERRAMENTO ── */
+.fim {
+  background: var(--verde);
+  padding: 80px 48px;
+  text-align: center;
+}
+.fim h2 { color: var(--branco); font-size: 32px; margin-bottom: 16px; }
+.fim p { color: rgba(255,255,255,0.65); max-width: 460px; margin: 0 auto 36px; }
+.fim-assinatura {
+  display: inline-block;
+  border-top: 1px solid rgba(196,163,90,0.4);
+  padding-top: 20px;
+  color: var(--dourado);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 17px;
+}
+
+@media (max-width: 600px) {
+  .secao, .placar-section, .fim { padding: 48px 20px; }
+  .placar-grid { grid-template-columns: repeat(7, 1fr); gap: 6px; }
+  .dia-btn .dia-num { font-size: 14px; }
+  .dia-btn .dia-label { display: none; }
+  .placar-stats { grid-template-columns: repeat(3, 1fr); }
+  .alimento-item { grid-template-columns: 1fr; gap: 4px; }
+  .alimento-sub { text-align: left; }
+  .evitar-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── BOTÃO PDF ── */
+.btn-pdf-wrap {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.btn-pdf {
+  background: var(--verde);
+  color: var(--branco);
+  border: none;
+  border-radius: 50px;
+  padding: 14px 22px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(26,58,42,0.35);
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+}
+.btn-pdf:hover {
+  background: var(--verde-med);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(26,58,42,0.45);
+}
+.btn-pdf .pdf-icon { font-size: 18px; }
+.btn-pdf-dica {
+  background: rgba(26,58,42,0.85);
+  color: var(--menta);
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  padding: 5px 12px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn-pdf-wrap:hover .btn-pdf-dica {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── PRINT ── */
+@media print {
+  .btn-pdf-wrap { display: none !important; }
+  body { max-width: 100%; }
+  .capa {
+    min-height: auto;
+    padding: 60px 40px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .placar-section, .dor-box, .evitar-section, .categoria-titulo {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .secao { padding: 48px 40px; }
+  .fim {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .alimento-item { grid-template-columns: 150px 1fr auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="capa">
+  <div class="capa-badge">Protocolo Nutricional · 14 Dias</div>
+  <div class="capa-icon">🌿</div>
+  <h1>Cardápio<span>Anti-Inchaço</span></h1>
+  <p class="capa-sub">O guia prático para desinchar o corpo com escolhas alimentares inteligentes — sem dieta radical, sem sofrimento</p>
+  <div class="capa-divider"></div>
+  <div class="capa-box">
+    <p>"Você não precisa comer perfeitamente. Precisa comer <span>melhor</span>."</p>
+  </div>
+</div>
+
+<!-- INTRO EMOCIONAL -->
+<div class="secao branco">
+  <span class="label">Você se identifica?</span>
+  <h2>Aquela sensação de inchaço que não passa</h2>
+  <p>Acordar com o rosto inchado. Roupas que antes serviam agora apertam na barriga. Sentir o corpo pesado sem ter feito nada de diferente. A sensação de que seu corpo está retendo algo que não deveria.</p>
+  <p>Isso não é frescura. Não é falta de força de vontade. É uma resposta do organismo a padrões alimentares que, sem você perceber, ativam a inflamação e a retenção de líquidos todos os dias.</p>
+
+  <div class="dor-box">
+    <p>"A boa notícia: em 14 dias, com <span>escolhas simples e sustentáveis</span>, o seu corpo consegue reverter esse processo. Este guia foi criado para te mostrar exatamente o que comer — e por quê cada escolha faz diferença."</p>
+  </div>
+
+  <p>Não vai encontrar aqui uma lista de proibições impossíveis ou um cardápio que exige horas na cozinha. O que você vai encontrar é um guia de alimentos com alternativas para cada situação e um placar para acompanhar sua evolução dia a dia.</p>
+</div>
+
+<!-- PLACAR INTERATIVO -->
+<div class="placar-section">
+  <span class="label">Seu Progresso</span>
+  <h2>Placar dos 14 Dias</h2>
+  <p>Clique no dia para marcar como cumprido. Cada dia conta — mesmo que não tenha sido perfeito.</p>
+
+  <div class="placar-grid" id="placarGrid"></div>
+
+  <div class="progresso-bar-wrap">
+    <div class="progresso-bar" id="progressoBar"></div>
+  </div>
+  <div class="placar-msg" id="placarMsg">Clique nos dias para começar a marcar seu progresso ✨</div>
+
+  <div class="placar-stats">
+    <div class="stat-card">
+      <span class="stat-num" id="statCumpridos">0</span>
+      <span class="stat-label">Dias cumpridos</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num" id="statRestantes">14</span>
+      <span class="stat-label">Dias restantes</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num" id="statPorcentagem">0%</span>
+      <span class="stat-label">Progresso total</span>
+    </div>
+  </div>
+
+  <button class="reset-btn" onclick="resetPlacar()">↺ Reiniciar protocolo</button>
+</div>
+
+<!-- GUIA DE ALIMENTOS -->
+<div class="secao">
+  <span class="label">Guia de Alimentos</span>
+  <h2>O que comer — e por que cada alimento funciona</h2>
+  <p>Aqui não tem lista de proibições. Tem orientação. Para cada alimento, você vai entender o motivo de incluí-lo e vai encontrar uma alternativa caso não tenha acesso ou não goste.</p>
+
+  <div class="intro-alimentos">
+    <p>💡 <strong>Como usar este guia:</strong> você não precisa consumir todos esses alimentos todos os dias. O objetivo é incluir pelo menos <strong>3 a 4 itens de cada categoria</strong> ao longo da semana. A consistência importa mais do que a perfeição.</p>
+  </div>
+
+  <!-- VEGETAIS -->
+  <div class="categoria-titulo">
+    <span class="emoji">🥦</span>
+    <h3>Vegetais Anti-Inflamatórios</h3>
+    <span class="cat-desc">Consuma diariamente</span>
+  </div>
+  <div class="alimentos-lista">
+    <div class="alimento-item">
+      <div class="alimento-nome">🥒 Pepino</div>
+      <div class="alimento-porque">90% de água, tem efeito diurético natural e ajuda a eliminar o excesso de sódio pelo rim. Coma com casca para aproveitar a sílica.</div>
+      <div class="alimento-sub">Alternativa: abobrinha ou chuchu</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🌿 Aipo (salsão)</div>
+      <div class="alimento-porque">Contém apigenina, composto que reduz citocinas inflamatórias. Também tem efeito diurético comprovado em estudos clínicos.</div>
+      <div class="alimento-sub">Alternativa: salsinha ou coentro</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🥬 Espinafre</div>
+      <div class="alimento-porque">Rico em magnésio e potássio — dois minerais que equilibram a retenção hídrica e combatem o efeito do sódio nos tecidos.</div>
+      <div class="alimento-sub">Alternativa: couve, rúcula ou agrião</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🥦 Brócolis</div>
+      <div class="alimento-porque">Sulforafano, seu composto ativo, reduz diretamente o marcador inflamatório IL-6. Prefira levemente cozido no vapor para preservar o nutriente.</div>
+      <div class="alimento-sub">Alternativa: couve-flor ou repolho</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🫚 Aspargo</div>
+      <div class="alimento-porque">Contém asparagina, aminoácido que estimula a função diurética dos rins de forma suave e natural. Ótimo como acompanhamento.</div>
+      <div class="alimento-sub">Alternativa: vagem ou ervilha-torta</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🫚 Beterraba</div>
+      <div class="alimento-porque">Betalaínas são antioxidantes que reduzem a inflamação e melhoram a circulação linfática, ajudando o corpo a drenar líquidos retidos.</div>
+      <div class="alimento-sub">Alternativa: cenoura roxa ou rabanete</div>
+    </div>
+  </div>
+
+  <!-- FRUTAS -->
+  <div class="categoria-titulo">
+    <span class="emoji">🍉</span>
+    <h3>Frutas com Efeito Desinchante</h3>
+    <span class="cat-desc">1 a 2 porções por dia</span>
+  </div>
+  <div class="alimentos-lista">
+    <div class="alimento-item">
+      <div class="alimento-nome">🍍 Abacaxi</div>
+      <div class="alimento-porque">A bromelina é uma enzima que quebra proteínas inflamatórias e reduz o edema tecidual. Mais eficaz consumido fresco, não processado.</div>
+      <div class="alimento-sub">Alternativa: mamão com papaína</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🍉 Melancia</div>
+      <div class="alimento-porque">92% de água + citrulina, que melhora a circulação e tem efeito diurético leve. Uma das melhores frutas para retenção hídrica.</div>
+      <div class="alimento-sub">Alternativa: melão ou pepino-doce</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🫐 Mirtilo (blueberry)</div>
+      <div class="alimento-porque">Antocianinas, pigmentos azuis-roxos, têm entre os mais altos índices anti-inflamatórios entre as frutas. Uma porção pequena já faz efeito.</div>
+      <div class="alimento-sub">Alternativa: amora, framboesa ou morango</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🍋 Limão</div>
+      <div class="alimento-porque">O citrato de potássio presente no limão alcaliniza a urina e melhora a excreção renal de sódio. Use no molho das saladas e na água do dia.</div>
+      <div class="alimento-sub">Alternativa: laranja ou maracujá</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🥝 Kiwi</div>
+      <div class="alimento-porque">Actinidina melhora a digestão de proteínas. Alto em vitamina C, que fortalece a barreira intestinal e reduz permeabilidade inflamatória.</div>
+      <div class="alimento-sub">Alternativa: goiaba ou acerola</div>
+    </div>
+  </div>
+
+  <!-- PROTEÍNAS -->
+  <div class="categoria-titulo">
+    <span class="emoji">🐟</span>
+    <h3>Proteínas Anti-Inflamatórias</h3>
+    <span class="cat-desc">1 a 2x por dia</span>
+  </div>
+  <div class="alimentos-lista">
+    <div class="alimento-item">
+      <div class="alimento-nome">🐟 Salmão</div>
+      <div class="alimento-porque">EPA e DHA (ômega-3) são os anti-inflamatórios mais potentes da dieta. Reduzem PCR e interleucinas inflamatórias com 2 a 3 porções semanais.</div>
+      <div class="alimento-sub">Alternativa: sardinha, atum ou cavalinha</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🍳 Ovo inteiro</div>
+      <div class="alimento-porque">Colina do ovo reduz homocisteína, marcador inflamatório ligado ao inchaço. Gema tem ômega-3 quando o ovo é caipira ou enriquecido.</div>
+      <div class="alimento-sub">Alternativa: clara de ovo + queijo cottage</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🍗 Frango (peito)</div>
+      <div class="alimento-porque">Proteína magra que não promove inflamação quando preparado sem frituras. Prefira grelhado, assado ou cozido com ervas e limão.</div>
+      <div class="alimento-sub">Alternativa: peru, tilápia ou filé de peixe branco</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🫘 Tofu</div>
+      <div class="alimento-porque">Isoflavonas modulam receptores estrogênicos ligados à retenção hídrica hormonal. Boa opção para quem não consome carne todos os dias.</div>
+      <div class="alimento-sub">Alternativa: grão-de-bico ou lentilha</div>
+    </div>
+  </div>
+
+  <!-- CARBOIDRATOS -->
+  <div class="categoria-titulo">
+    <span class="emoji">🍠</span>
+    <h3>Carboidratos de Baixo Índice Inflamatório</h3>
+    <span class="cat-desc">Prefira a grãos refinados</span>
+  </div>
+  <div class="alimentos-lista">
+    <div class="alimento-item">
+      <div class="alimento-nome">🍠 Batata-doce</div>
+      <div class="alimento-porque">Índice glicêmico médio, rica em potássio (738mg/100g) e fibras. Substitui bem o arroz branco sem causar picos de insulina que pioram a retenção.</div>
+      <div class="alimento-sub">Alternativa: inhame, mandioca cozida ou cará</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🌾 Aveia</div>
+      <div class="alimento-porque">Betaglucana é uma fibra prebiótica que alimenta bactérias benéficas do intestino, reduzindo a fermentação excessiva que causa gases e inchaço.</div>
+      <div class="alimento-sub">Alternativa: farinha de aveia ou granola sem açúcar</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🌾 Quinoa</div>
+      <div class="alimento-porque">Proteína completa com todos os aminoácidos essenciais, sem o glúten que irrita o intestino em pessoas sensíveis e piora o inchaço abdominal.</div>
+      <div class="alimento-sub">Alternativa: arroz integral ou amaranto</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🫘 Lentilha</div>
+      <div class="alimento-porque">Amido resistente que serve de prebiótico para o microbioma. Rica em ferro e fibras, promove saciedade sem inflamação digestiva.</div>
+      <div class="alimento-sub">Alternativa: feijão-azuki ou grão-de-bico</div>
+    </div>
+  </div>
+
+  <!-- TEMPEROS -->
+  <div class="categoria-titulo">
+    <span class="emoji">🫚</span>
+    <h3>Temperos e Condimentos que Desinflam</h3>
+    <span class="cat-desc">Use com frequência</span>
+  </div>
+  <div class="alimentos-lista">
+    <div class="alimento-item">
+      <div class="alimento-nome">🟡 Cúrcuma (açafrão)</div>
+      <div class="alimento-porque">Curcumina bloqueia o NF-κB, principal ativador da inflamação celular. Absorção aumenta 2000% com pimenta-do-reino. Use em sopas, ovos e arroz.</div>
+      <div class="alimento-sub">Alternativa: curry (já contém cúrcuma)</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🫚 Gengibre fresco</div>
+      <div class="alimento-porque">Gingeróis inibem prostaglandinas inflamatórias. Também melhora a motilidade intestinal, reduzindo gases e a sensação de estufamento após refeições.</div>
+      <div class="alimento-sub">Alternativa: gengibre em pó (menor potência)</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🫚 Azeite extravirgem</div>
+      <div class="alimento-porque">Oleocanthal tem ação anti-inflamatória comparável ao ibuprofeno em doses pequenas. Use frio ou em baixa temperatura para preservar os polifenóis.</div>
+      <div class="alimento-sub">Alternativa: óleo de abacate</div>
+    </div>
+    <div class="alimento-item">
+      <div class="alimento-nome">🧄 Alho</div>
+      <div class="alimento-porque">Alicina tem potente ação anti-inflamatória e antibacteriana intestinal. Mais eficaz cru ou adicionado ao final do preparo para não perder o composto ativo.</div>
+      <div class="alimento-sub">Alternativa: cebola roxa ou cebolinha</div>
+    </div>
+  </div>
+
+  <!-- O QUE EVITAR -->
+  <div class="evitar-section">
+    <h3>⚠️ O que reduzir nos 14 dias</h3>
+    <p>Não precisa eliminar tudo de uma vez. Comece reduzindo a frequência. Cada substituição já faz diferença.</p>
+    <div class="evitar-grid">
+      <div class="evitar-item"><span>🧂</span>Embutidos e frios</div>
+      <div class="evitar-item"><span>🥤</span>Refrigerantes</div>
+      <div class="evitar-item"><span>🍟</span>Frituras</div>
+      <div class="evitar-item"><span>🍞</span>Pão branco</div>
+      <div class="evitar-item"><span>🍺</span>Álcool</div>
+      <div class="evitar-item"><span>🍔</span>Fast food</div>
+      <div class="evitar-item"><span>🥫</span>Enlatados</div>
+      <div class="evitar-item"><span>🍬</span>Adoçantes artificiais</div>
+    </div>
+  </div>
+</div>
+
+<!-- DICAS PRÁTICAS -->
+<div class="secao branco">
+  <span class="label">Dicas de Ouro</span>
+  <h2>Estratégias práticas para o dia a dia</h2>
+  <p>Essas dicas resolvem as situações reais que fazem as pessoas desistirem de um protocolo alimentar.</p>
+
+  <div class="dica-card">
+    <span class="dica-tag">Praticidade</span>
+    <h4>Não tem tempo de cozinhar? Use a regra do prato simples</h4>
+    <p>Monte qualquer refeição com essa fórmula: <strong>1 proteína + 1 vegetal + 1 carboidrato de baixo índice glicêmico</strong>. Não precisa ser elaborado. Frango + espinafre + batata-doce cozida já é uma refeição perfeita para o protocolo.</p>
+  </div>
+
+  <div class="dica-card">
+    <span class="dica-tag">Alternativas</span>
+    <h4>Não gosta de peixe? Veja como substituir o ômega-3</h4>
+    <p>Adicione <strong>1 colher de sopa de linhaça dourada moída</strong> no iogurte, vitamina ou aveia. A linhaça fornece ALA, precursor do ômega-3, e tem o mesmo efeito anti-inflamatório gradual. Chia também funciona. Não tem desculpa para pular essa etapa.</p>
+  </div>
+
+  <div class="dica-card">
+    <span class="dica-tag">Orçamento</span>
+    <h4>Protocolo barato: os 5 alimentos essenciais por menos de R$30</h4>
+    <p>Se o orçamento for apertado, foque nesses cinco: <strong>ovo, aveia, batata-doce, limão e folhas verdes (couve ou espinafre)</strong>. Com eles você cobre os principais mecanismos do protocolo — probiótico, potássio, fibra prebiótica e anti-inflamatório — sem gastar muito.</p>
+  </div>
+
+  <div class="dica-card">
+    <span class="dica-tag">Realidade</span>
+    <h4>O que fazer quando sair do protocolo</h4>
+    <p>Você vai sair. Vai comer uma pizza, vai pular um dia. Isso não arruína o resultado. O problema não é o dia que fugiu — é desistir depois. <strong>Regra prática: nunca erre dois dias seguidos.</strong> Se errou hoje, amanhã volta. Sem culpa, sem punição, sem recomeçar do zero.</p>
+  </div>
+
+  <div class="dica-card">
+    <span class="dica-tag">Sono</span>
+    <h4>Por que dormir mal incha o corpo</h4>
+    <p>Privação de sono eleva o cortisol, que por sua vez aumenta a retenção de sódio nos rins. Em outras palavras: dormir menos de 7 horas pode desfazer parte do trabalho alimentar do dia. O protocolo não funciona sozinho — o sono é parte dele.</p>
+  </div>
+
+  <div class="dica-card">
+    <span class="dica-tag">Sal</span>
+    <h4>Como temperar sem sódio excessivo</h4>
+    <p>Substitua parte do sal de cozinha por: <strong>limão, vinagre de maçã, ervas frescas (manjericão, salsinha, coentro), alho, gengibre e cúrcuma</strong>. Eles amplificam o sabor sem aumentar a retenção hídrica. Se usar sal, prefira o sal rosa do Himalaia ou marinho, em quantidade menor.</p>
+  </div>
+</div>
+
+<!-- HIDRATAÇÃO -->
+<div class="secao">
+  <span class="label">Hidratação Estratégica</span>
+  <h2>Como beber água do jeito certo</h2>
+  <p>Paradoxalmente, beber água de forma distribuída ao longo do dia é um dos melhores remédios para a retenção hídrica. O organismo retém líquido quando sente escassez — ao hidratar bem, ele libera o que estava guardando.</p>
+
+  <div class="agua-item">
+    <span class="agua-hora">Ao acordar</span>
+    <span class="agua-desc">Água morna com suco de ½ limão. Ativa o fígado e estimula a bile antes da primeira refeição.</span>
+    <span class="agua-ml">300 ml</span>
+  </div>
+  <div class="agua-item">
+    <span class="agua-hora">Manhã</span>
+    <span class="agua-desc">Água natural ou chá de cavalinha, dente-de-leão ou hibisco (sem açúcar). Todos têm ação diurética natural.</span>
+    <span class="agua-ml">400 ml</span>
+  </div>
+  <div class="agua-item">
+    <span class="agua-hora">Antes do almoço</span>
+    <span class="agua-desc">30 minutos antes — aumenta saciedade e prepara o sistema digestivo para absorção dos nutrientes.</span>
+    <span class="agua-ml">250 ml</span>
+  </div>
+  <div class="agua-item">
+    <span class="agua-hora">Tarde</span>
+    <span class="agua-desc">Chá verde ou água com pepino e hortelã. Evite suco de caixinha — o açúcar piora a retenção.</span>
+    <span class="agua-ml">400 ml</span>
+  </div>
+  <div class="agua-item">
+    <span class="agua-hora">Lanche</span>
+    <span class="agua-desc">Água de coco natural (pequena) ou chá de ervas. A água de coco repõe potássio perdido ao longo do dia.</span>
+    <span class="agua-ml">300 ml</span>
+  </div>
+  <div class="agua-item">
+    <span class="agua-hora">Antes do jantar</span>
+    <span class="agua-desc">Água natural. Evite excesso de líquidos depois das 20h para não interromper o sono — que é parte do protocolo.</span>
+    <span class="agua-ml">250 ml</span>
+  </div>
+  <div class="agua-item">
+    <span class="agua-hora">Noite</span>
+    <span class="agua-desc">Chá de camomila ou erva-cidreira. Favorece o descanso e a ação noturna do fígado e rins.</span>
+    <span class="agua-ml">200 ml</span>
+  </div>
+</div>
+
+<!-- FASES DO PROTOCOLO -->
+<div class="secao branco">
+  <span class="label">O Que Esperar</span>
+  <h2>Sua evolução semana a semana</h2>
+
+  <div class="fase">
+    <span class="fase-num">Dias 1–3</span>
+    <div>
+      <h3>Adaptação</h3>
+      <p>O organismo começa a liberar o sódio acumulado. É normal sentir maior frequência urinária, leve dor de cabeça ou variações de humor. São sinais de que o processo começou. Mantenha a hidratação em dia.</p>
+    </div>
+  </div>
+  <div class="fase">
+    <span class="fase-num">Dias 4–7</span>
+    <div>
+      <h3>Primeiros Resultados</h3>
+      <p>A redução do inchaço começa a aparecer no rosto, abdômen e extremidades. A digestão melhora. A flora intestinal começa a se reequilibrar. Muitas pessoas relatam mais energia e clareza mental nessa fase.</p>
+    </div>
+  </div>
+  <div class="fase">
+    <span class="fase-num">Dias 8–11</span>
+    <div>
+      <h3>Consolidação</h3>
+      <p>A retenção hídrica diminui de forma expressiva. O sono melhora. Roupas ficam mais folgadas. O corpo já aprendeu a responder melhor à hidratação e está excretando o excesso com mais eficiência.</p>
+    </div>
+  </div>
+  <div class="fase">
+    <span class="fase-num">Dias 12–14</span>
+    <div>
+      <h3>Resultado Visível</h3>
+      <p>Redução perceptível e mensurável. O microbioma intestinal está significativamente melhorado. Os hábitos construídos nessas duas semanas formam a base para uma alimentação anti-inflamatória sustentável — que você pode manter para o resto da vida.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ENCERRAMENTO -->
+<div class="fim">
+  <h2>Seu corpo responde quando você o respeita.</h2>
+  <p>Estes 14 dias não são uma dieta. São o começo de uma relação mais inteligente com a alimentação. Continue com as escolhas que aprendeu aqui — e o seu corpo vai continuar respondendo.</p>
+  <span class="fim-assinatura">Protocolo Anti-Inchaço · 14 Dias para um Novo Equilíbrio</span>
+</div>
+
+<script>
+const STORAGE_KEY = 'antiinchaco_placar';
+const MSGS = [
+  "Continue assim! Cada dia conta 💪",
+  "Você já está no caminho certo 🌿",
+  "Metade do caminho feito! Incrível 🎯",
+  "Reta final — o resultado já é visível ✨",
+  "Protocolo completo! Parabéns pela disciplina 🏆"
+];
+
+function getMsgs(cumpridos) {
+  if (cumpridos === 0) return "Clique nos dias para começar a marcar seu progresso ✨";
+  if (cumpridos <= 3) return MSGS[0];
+  if (cumpridos <= 7) return MSGS[1];
+  if (cumpridos <= 10) return MSGS[2];
+  if (cumpridos <= 13) return MSGS[3];
+  return MSGS[4];
+}
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : new Array(14).fill(false);
+  } catch { return new Array(14).fill(false); }
+}
+
+function saveState(state) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+}
+
+let state = loadState();
+
+function renderPlacar() {
+  const grid = document.getElementById('placarGrid');
+  grid.innerHTML = '';
+  state.forEach((cumprido, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'dia-btn' + (cumprido ? ' cumprido' : '');
+    btn.innerHTML = `
+      <div class="dia-check">✓</div>
+      <span class="dia-num">${i + 1}</span>
+      <span class="dia-label">DIA</span>
+    `;
+    btn.onclick = () => toggleDia(i);
+    grid.appendChild(btn);
+  });
+  updateStats();
+}
+
+function toggleDia(index) {
+  state[index] = !state[index];
+  saveState(state);
+  renderPlacar();
+}
+
+function updateStats() {
+  const cumpridos = state.filter(Boolean).length;
+  const restantes = 14 - cumpridos;
+  const pct = Math.round((cumpridos / 14) * 100);
+
+  document.getElementById('statCumpridos').textContent = cumpridos;
+  document.getElementById('statRestantes').textContent = restantes;
+  document.getElementById('statPorcentagem').textContent = pct + '%';
+  document.getElementById('progressoBar').style.width = pct + '%';
+  document.getElementById('placarMsg').textContent = getMsgs(cumpridos);
+}
+
+function resetPlacar() {
+  if (confirm('Tem certeza que deseja reiniciar o protocolo? Todo o progresso será perdido.')) {
+    state = new Array(14).fill(false);
+    saveState(state);
+    renderPlacar();
+  }
+}
+
+renderPlacar();
+</script>
+
+
+</body>
+</html>
